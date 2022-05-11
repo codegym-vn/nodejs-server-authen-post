@@ -15,10 +15,11 @@ exports.postRegister = async (req, res, next) =>  {
   }
 }
 
-exports.postList = async (req, res, next) => {
+exports.postList = async (req, res) => {
   try {
     const posts = await PostModel.find();
-    res.json({posts: posts})
+    console.log(posts, 'posts')
+    res.render('listpost', { posts: posts });
   } catch (err) {
     console.log(err)
   }
